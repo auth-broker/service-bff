@@ -9,7 +9,7 @@ from ab_core.dependency import Depends, inject
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
 
-from ab_service.template.routes.heartbeat import router as heartbeat_router
+from ab_service.bff.routes.heartbeat import router as heartbeat_router
 
 
 @inject

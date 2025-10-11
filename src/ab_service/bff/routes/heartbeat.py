@@ -8,7 +8,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from ab_core.database.session_context import db_session_async
-from ab_service.template.models.heartbeat import Heartbeat
+from ab_service.bff.models.heartbeat import Heartbeat
 
 router = APIRouter(prefix="/heartbeat", tags=["Heartbeat"])
 
