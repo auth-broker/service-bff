@@ -3,6 +3,9 @@
 from contextlib import asynccontextmanager
 from typing import Annotated
 
+from ab_client_auth_client.client import Client as AuthClient
+from ab_client_token_validator.client import Client as TokenValidatorClient
+from ab_client_user.client import Client as UserClient
 from ab_core.alembic_auto_migrate.service import AlembicAutoMigrate
 from ab_core.database.databases import Database
 from ab_core.dependency import Depends, inject
@@ -10,11 +13,7 @@ from ab_core.dependency.loaders.environment_object import ObjectLoaderEnvironmen
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
 
-from ab_service.bff.routes.heartbeat import router as heartbeat_router
-
-from ab_client_auth_client.client import Client as AuthClient
-from ab_client_token_validator.client import Client as TokenValidatorClient
-from ab_client_user.client import Client as UserClient
+from ab_service.bff.routes.identity_context import router as identity_context_router
 
 
 @inject
@@ -53,4 +52,4 @@ async def lifespan(
 
 
 app = FastAPI(lifespan=lifespan)
-app.include_router(heartbeat_router)
+app.include_router(identity_context_router)

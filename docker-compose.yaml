@@ -2,23 +2,21 @@ services:
   service:
     build:
       context: .
-
     environment:
-      TOKEN_VALIDATOR_TYPE: "${TOKEN_VALIDATOR_TYPE:-}"
-      AUTH_SERVICE_BASE_URL: "http://ab-auth-client-service:9000/"
-      TOKEN_VALIDATOR_SERVICE_BASE_URL: "http://ab-token-validator-service:9001/"
-      USER_SERVICE_BASE_URL: "http://ab-user-service:9002/"
-
-
+      AUTH_SERVICE_BASE_URL: "http://ab-auth-client-service:80/"
+      TOKEN_VALIDATOR_SERVICE_BASE_URL: "http://ab-token-validator-service:80/"
+      USER_SERVICE_BASE_URL: "http://ab-user-service:80/"
     volumes:
       - ./src:/package/src
       - ./tests:/package/tests
       - ./alembic:/package/alembic
       - ./alembic.ini:/package/alembic.ini:ro
       - ab_bff_service_data:/package/data
-
     ports:
       - "9999:80"
+    networks:
+      - auth-broker-bff
+    restart: unless-stopped
 
   ab-user-service:
     container_name: ab-user-service
