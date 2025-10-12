@@ -3,6 +3,13 @@ services:
     build:
       context: .
 
+    environment:
+      TOKEN_VALIDATOR_TYPE: "${TOKEN_VALIDATOR_TYPE:-}"
+      AUTH_SERVICE_BASE_URL: "http://ab-auth-client-service:9000/"
+      TOKEN_VALIDATOR_SERVICE_BASE_URL: "http://ab-token-validator-service:9001/"
+      USER_SERVICE_BASE_URL: "http://ab-user-service:9002/"
+
+
     volumes:
       - ./src:/package/src
       - ./tests:/package/tests

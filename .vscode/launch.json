@@ -60,7 +60,7 @@
       "request": "launch",
       "module": "uvicorn",
       "args": [
-        "ab_service.template.main:app",
+        "ab_service.bff.main:app",
         "--host", "127.0.0.1",
         "--port", "8000",
         "--reload"
