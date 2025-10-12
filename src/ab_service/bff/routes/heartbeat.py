@@ -7,6 +7,7 @@ from fastapi import Depends as FDepends
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from ab_core.identity_context.dependency import IdentityContext, get_identity_context
 from ab_core.database.session_context import db_session_async
 from ab_service.bff.models.heartbeat import Heartbeat
 
@@ -16,6 +17,7 @@ router = APIRouter(prefix="/heartbeat", tags=["Heartbeat"])
 @router.get("", response_model=list[Heartbeat])
 async def heartbeat(
     db_session: Annotated[AsyncSession, FDepends(db_session_async)],
+    identity_context: Annotated[IdentityContext, FDepends(get_identity_context)]
 ):
     """Insert a heartbeat row and return it."""
     hb = Heartbeat()  # last_seen auto-filled (UTC)
