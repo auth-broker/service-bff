@@ -6,6 +6,8 @@ services:
       AUTH_SERVICE_BASE_URL: "http://ab-auth-client-service:80/"
       TOKEN_VALIDATOR_SERVICE_BASE_URL: "http://ab-token-validator-service:80/"
       USER_SERVICE_BASE_URL: "http://ab-user-service:80/"
+      TOKEN_ISSUER_BASE_URL: "http://ab-token-issuer-service:80/"
+      TOKEN_ISSUER_STORE_BASE_URL: "http://ab-token-issuer-store-service:80/"
     volumes:
       - ./src:/package/src
       - ./tests:/package/tests
@@ -14,6 +16,24 @@ services:
       - ab_bff_service_data:/package/data
     ports:
       - "9999:80"
+    networks:
+      - auth-broker-bff
+    restart: unless-stopped
+
+  ab-token-issuer-service:
+    container_name: ab-token-issuer-service
+    image: mattcoulter7/ab-token-issuer-service:0.2.0
+    ports:
+      - "9003:80"
+    networks:
+      - auth-broker-bff
+    restart: unless-stopped
+
+  ab-token-issuer-store-service:
+    container_name: ab-token-issuer-store-service
+    image: mattcoulter7/ab-token-issuer-store-service:0.2.1
+    ports:
+      - "9004:80"
     networks:
       - auth-broker-bff
     restart: unless-stopped
@@ -31,7 +51,7 @@ services:
 
   ab-token-validator-service:
     container_name: ab-token-validator-service
-    image: mattcoulter7/ab-token-validator-service:0.1.5
+    image: mattcoulter7/ab-token-validator-service:0.1.6
     environment:
       TOKEN_VALIDATOR_TYPE: "${TOKEN_VALIDATOR_TYPE:-}"
       TOKEN_VALIDATOR_OIDC_ISSUER: "${TOKEN_VALIDATOR_OIDC_ISSUER:-}"
