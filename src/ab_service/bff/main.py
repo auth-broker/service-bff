@@ -11,22 +11,31 @@ from ab_client_token_validator.client import Client as TokenValidatorClient
 from ab_client_user.client import Client as UserClient
 from ab_core.alembic_auto_migrate.service import AlembicAutoMigrate
 from ab_core.database.databases import Database
-from ab_core.dependency import Depends, inject, pydanticize_type
-from ab_core.dependency.loaders.environment_object import ObjectLoaderEnvironment
+from ab_core.dependency import Depends, inject
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
 
 from ab_service.bff.routes.identity_context import router as identity_context_router
 
+from .dependencies import (
+    get_auth_client,
+    get_database,
+    get_token_issuer_client,
+    get_token_issuer_store_client,
+    get_token_store_client,
+    get_token_validator_client,
+    get_user_client,
+)
 
-@inject
+
 @asynccontextmanager
+@inject
 async def lifespan(
     _app: FastAPI,
     _db: Annotated[
         Database,
         Depends(
-            Database,
+            get_database,
             persist=True,
         ),
     ],  # cold start load db into cache
@@ -47,42 +56,42 @@ async def lifespan(
     _auth_client: Annotated[
         AuthClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(AuthClient)](env_prefix="AUTH_SERVICE"),
+            get_auth_client,
             persist=True,
         ),
     ],
     _token_validator_client: Annotated[
         TokenValidatorClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenValidatorClient)](env_prefix="TOKEN_VALIDATOR_SERVICE"),
+            get_token_validator_client,
             persist=True,
         ),
     ],
     _user_client: Annotated[
         UserClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(UserClient)](env_prefix="USER_SERVICE"),
+            get_user_client,
             persist=True,
         ),
     ],
     _token_issuer_client: Annotated[
         TokenIssuerClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenIssuerClient)](env_prefix="TOKEN_ISSUER_SERVICE"),
+            get_token_issuer_client,
             persist=True,
         ),
     ],
     _token_issuer_store_client: Annotated[
         TokenIssuerStoreClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenIssuerStoreClient)](env_prefix="TOKEN_ISSUER_STORE_SERVICE"),
+            get_token_issuer_store_client,
             persist=True,
         ),
     ],
     _token_store_client: Annotated[
         TokenStoreClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenStoreClient)](env_prefix="TOKEN_STORE_SERVICE"),
+            get_token_store_client,
             persist=True,
         ),
     ],
