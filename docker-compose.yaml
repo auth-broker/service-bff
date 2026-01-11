@@ -23,7 +23,7 @@ services:
 
   ab-token-issuer-service:
     container_name: ab-token-issuer-service
-    image: mattcoulter7/ab-token-issuer-service:0.3.0
+    image: mattcoulter7/ab-token-issuer-service:0.3.1
     ports:
       - "9003:80"
     networks:
