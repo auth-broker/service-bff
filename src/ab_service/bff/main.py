@@ -65,21 +65,21 @@ async def lifespan(
             persist=True,
         ),
     ],
-    _token_issuer: Annotated[
+    _token_issuer_client: Annotated[
         TokenIssuerClient,
         Depends(
             ObjectLoaderEnvironment[pydanticize_type(TokenIssuerClient)](env_prefix="TOKEN_ISSUER_SERVICE"),
             persist=True,
         ),
     ],
-    _token_issuer_store: Annotated[
+    _token_issuer_store_client: Annotated[
         TokenIssuerStoreClient,
         Depends(
             ObjectLoaderEnvironment[pydanticize_type(TokenIssuerStoreClient)](env_prefix="TOKEN_ISSUER_STORE_SERVICE"),
             persist=True,
         ),
     ],
-    _token_store: Annotated[
+    _token_store_client: Annotated[
         TokenStoreClient,
         Depends(
             ObjectLoaderEnvironment[pydanticize_type(TokenStoreClient)](env_prefix="TOKEN_STORE_SERVICE"),
