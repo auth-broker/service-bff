@@ -43,7 +43,7 @@ services:
 
   ab-token-store-service:
     container_name: ab-token-store-service
-    image: mattcoulter7/ab-token-store-service:0.1.0
+    image: mattcoulter7/ab-token-store-service:0.1.1
     volumes:
       - ab_token_store_service_data:/package/data
     ports:
