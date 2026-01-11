@@ -3,13 +3,15 @@
 from contextlib import asynccontextmanager
 from typing import Annotated
 
-from ab_core.dependency import pydanticize_type
 from ab_client_auth_client.client import Client as AuthClient
+from ab_client_token_issuer.client import Client as TokenIssuerClient
+from ab_client_token_issuer_store.client import Client as TokenIssuerStoreClient
+from ab_client_token_store.client import Client as TokenStoreClient
 from ab_client_token_validator.client import Client as TokenValidatorClient
 from ab_client_user.client import Client as UserClient
 from ab_core.alembic_auto_migrate.service import AlembicAutoMigrate
 from ab_core.database.databases import Database
-from ab_core.dependency import Depends, inject
+from ab_core.dependency import Depends, inject, pydanticize_type
 from ab_core.dependency.loaders.environment_object import ObjectLoaderEnvironment
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
@@ -39,11 +41,34 @@ async def lifespan(
     ],
     _token_validator_client: Annotated[
         TokenValidatorClient,
-        Depends(ObjectLoaderEnvironment[pydanticize_type(TokenValidatorClient)](env_prefix="TOKEN_VALIDATOR_SERVICE"), persist=True),
+        Depends(
+            ObjectLoaderEnvironment[pydanticize_type(TokenValidatorClient)](env_prefix="TOKEN_VALIDATOR_SERVICE"),
+            persist=True,
+        ),
     ],
     _user_client: Annotated[
         UserClient,
         Depends(ObjectLoaderEnvironment[pydanticize_type(UserClient)](env_prefix="USER_SERVICE"), persist=True),
+    ],
+    _token_issuer: Annotated[
+        TokenIssuerClient,
+        Depends(
+            ObjectLoaderEnvironment[pydanticize_type(TokenIssuerClient)](env_prefix="TOKEN_ISSUER_SERVICE"),
+            persist=True,
+        ),
+    ],
+    _token_issuer_store: Annotated[
+        TokenIssuerStoreClient,
+        Depends(
+            ObjectLoaderEnvironment[pydanticize_type(TokenIssuerStoreClient)](env_prefix="TOKEN_ISSUER_STORE_SERVICE"),
+            persist=True,
+        ),
+    ],
+    _token_store: Annotated[
+        TokenStoreClient,
+        Depends(
+            ObjectLoaderEnvironment[pydanticize_type(TokenStoreClient)](env_prefix="TOKEN_STORE_SERVICE"), persist=True
+        ),
     ],
 ):
     """Lifespan context manager to handle startup and shutdown events."""
