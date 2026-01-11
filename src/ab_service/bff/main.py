@@ -3,6 +3,7 @@
 from contextlib import asynccontextmanager
 from typing import Annotated
 
+from ab_core.dependency import pydanticize_type
 from ab_client_auth_client.client import Client as AuthClient
 from ab_client_token_validator.client import Client as TokenValidatorClient
 from ab_client_user.client import Client as UserClient
@@ -34,15 +35,15 @@ async def lifespan(
     ],
     _auth_client: Annotated[
         AuthClient,
-        Depends(ObjectLoaderEnvironment[AuthClient](env_prefix="AUTH_SERVICE"), persist=True),
+        Depends(ObjectLoaderEnvironment[pydanticize_type(AuthClient)](env_prefix="AUTH_SERVICE"), persist=True),
     ],
     _token_validator_client: Annotated[
         TokenValidatorClient,
-        Depends(ObjectLoaderEnvironment[TokenValidatorClient](env_prefix="TOKEN_VALIDATOR_SERVICE"), persist=True),
+        Depends(ObjectLoaderEnvironment[pydanticize_type(TokenValidatorClient)](env_prefix="TOKEN_VALIDATOR_SERVICE"), persist=True),
     ],
     _user_client: Annotated[
         UserClient,
-        Depends(ObjectLoaderEnvironment[UserClient](env_prefix="USER_SERVICE"), persist=True),
+        Depends(ObjectLoaderEnvironment[pydanticize_type(UserClient)](env_prefix="USER_SERVICE"), persist=True),
     ],
 ):
     """Lifespan context manager to handle startup and shutdown events."""
