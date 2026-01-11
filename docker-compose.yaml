@@ -6,9 +6,9 @@ services:
       AUTH_SERVICE_BASE_URL: "http://ab-auth-client-service:80/"
       TOKEN_VALIDATOR_SERVICE_BASE_URL: "http://ab-token-validator-service:80/"
       USER_SERVICE_BASE_URL: "http://ab-user-service:80/"
-      TOKEN_ISSUER_BASE_URL: "http://ab-token-issuer-service:80/"
-      TOKEN_ISSUER_STORE_BASE_URL: "http://ab-token-issuer-store-service:80/"
-      TOKEN_STORE_BASE_URL: "http://ab-token-store-service:80/"
+      TOKEN_ISSUER_SERVICE_BASE_URL: "http://ab-token-issuer-service:80/"
+      TOKEN_ISSUER_STORE_SERVICE_BASE_URL: "http://ab-token-issuer-store-service:80/"
+      TOKEN_STORE_SERVICE_BASE_URL: "http://ab-token-store-service:80/"
     volumes:
       - ./src:/package/src
       - ./tests:/package/tests
