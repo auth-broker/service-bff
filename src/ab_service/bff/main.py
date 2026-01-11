@@ -25,19 +25,31 @@ async def lifespan(
     _app: FastAPI,
     _db: Annotated[
         Database,
-        Depends(Database, persist=True),
+        Depends(
+            Database,
+            persist=True,
+        ),
     ],  # cold start load db into cache
     logging_config: Annotated[
         LoggingConfig,
-        Depends(LoggingConfig, persist=True),
+        Depends(
+            LoggingConfig,
+            persist=True,
+        ),
     ],
     alembic_auto_migrate: Annotated[
         AlembicAutoMigrate,
-        Depends(AlembicAutoMigrate, persist=True),
+        Depends(
+            AlembicAutoMigrate,
+            persist=True,
+        ),
     ],
     _auth_client: Annotated[
         AuthClient,
-        Depends(ObjectLoaderEnvironment[pydanticize_type(AuthClient)](env_prefix="AUTH_SERVICE"), persist=True),
+        Depends(
+            ObjectLoaderEnvironment[pydanticize_type(AuthClient)](env_prefix="AUTH_SERVICE"),
+            persist=True,
+        ),
     ],
     _token_validator_client: Annotated[
         TokenValidatorClient,
@@ -48,7 +60,10 @@ async def lifespan(
     ],
     _user_client: Annotated[
         UserClient,
-        Depends(ObjectLoaderEnvironment[pydanticize_type(UserClient)](env_prefix="USER_SERVICE"), persist=True),
+        Depends(
+            ObjectLoaderEnvironment[pydanticize_type(UserClient)](env_prefix="USER_SERVICE"),
+            persist=True,
+        ),
     ],
     _token_issuer: Annotated[
         TokenIssuerClient,
@@ -67,7 +82,8 @@ async def lifespan(
     _token_store: Annotated[
         TokenStoreClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenStoreClient)](env_prefix="TOKEN_STORE_SERVICE"), persist=True
+            ObjectLoaderEnvironment[pydanticize_type(TokenStoreClient)](env_prefix="TOKEN_STORE_SERVICE"),
+            persist=True,
         ),
     ],
 ):
