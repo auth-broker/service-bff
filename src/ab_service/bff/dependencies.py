@@ -104,10 +104,17 @@ async def get_token_store_client(
 
 __all__ = [
     get_database,
+    Database,
     get_auth_client,
+    AuthClient,
     get_token_validator_client,
+    TokenValidatorClient,
     get_user_client,
+    UserClient,
     get_token_issuer_client,
+    TokenIssuerClient,
     get_token_issuer_store_client,
+    TokenIssuerStoreClient,
     get_token_store_client,
+    TokenStoreClient,
 ]
