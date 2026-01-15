@@ -1,19 +1,20 @@
-from __future__ import annotations
+"""Pydantic schemas for token issuer endpoints.
 
-from typing import Annotated
+Defines request/response models used by the token issuer API.
+"""
 
-from ab_client_token_issuer_store.models.o_auth_2_token_issuer import OAuth2TokenIssuer
-from ab_client_token_issuer_store.models.pkceo_auth_2_token_issuer import PKCEOAuth2TokenIssuer
-from ab_core.dependency import pydanticize_type
-from pydantic import Field, BaseModel
-
-
-TokenIssuer = Annotated[
-    pydanticize_type(OAuth2TokenIssuer) | pydanticize_type(PKCEOAuth2TokenIssuer),
-    Field(discriminator="type_"),
-]
+from ab_client.token_issuer_store import TokenIssuer
+from pydantic import BaseModel
 
 
 class CreateTokenIssuerRequest(BaseModel):
+    """Request model for creating a token issuer.
+
+    Attributes:
+        name: str: Human-friendly name for the issuer.
+        token_issuer: TokenIssuer: The issuer configuration object.
+
+    """
+
     name: str
     token_issuer: TokenIssuer

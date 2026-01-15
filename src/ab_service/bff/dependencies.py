@@ -1,11 +1,17 @@
+"""Dependency providers for the BFF service.
+
+This module exposes dependency-injected factories for the database and
+remote service clients used by the BFF routes.
+"""
+
 from typing import Annotated
 
-from ab_client_auth_client.client import Client as AuthClient
-from ab_client_token_issuer.client import Client as TokenIssuerClient
-from ab_client_token_issuer_store.client import Client as TokenIssuerStoreClient
-from ab_client_token_store.client import Client as TokenStoreClient
-from ab_client_token_validator.client import Client as TokenValidatorClient
-from ab_client_user.client import Client as UserClient
+from ab_client.auth_client import AsyncClient as AuthClient
+from ab_client.token_issuer import AsyncClient as TokenIssuerClient
+from ab_client.token_issuer_store import AsyncClient as TokenIssuerStoreClient
+from ab_client.token_store import AsyncClient as TokenStoreClient
+from ab_client.token_validator import AsyncClient as TokenValidatorClient
+from ab_client.user import AsyncClient as UserClient
 from ab_core.database.databases import Database
 from ab_core.dependency import Depends, inject, pydanticize_type
 from ab_core.dependency.loaders.environment_object import ObjectLoaderEnvironment
@@ -42,7 +48,7 @@ async def get_token_validator_client(
     _token_validator_client: Annotated[
         TokenValidatorClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenValidatorClient)](env_prefix="TOKEN_VALIDATOR_SERVICE"),
+            ObjectLoaderEnvironment[TokenValidatorClient](env_prefix="TOKEN_VALIDATOR_SERVICE"),
             persist=True,
         ),
     ],
@@ -55,7 +61,7 @@ async def get_user_client(
     _user_client: Annotated[
         UserClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(UserClient)](env_prefix="USER_SERVICE"),
+            ObjectLoaderEnvironment[UserClient](env_prefix="USER_SERVICE"),
             persist=True,
         ),
     ],
@@ -68,7 +74,7 @@ async def get_token_issuer_client(
     _token_issuer_client: Annotated[
         TokenIssuerClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenIssuerClient)](env_prefix="TOKEN_ISSUER_SERVICE"),
+            ObjectLoaderEnvironment[TokenIssuerClient](env_prefix="TOKEN_ISSUER_SERVICE"),
             persist=True,
         ),
     ],
@@ -81,7 +87,7 @@ async def get_token_issuer_store_client(
     _token_issuer_store_client: Annotated[
         TokenIssuerStoreClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenIssuerStoreClient)](env_prefix="TOKEN_ISSUER_STORE_SERVICE"),
+            ObjectLoaderEnvironment[TokenIssuerStoreClient](env_prefix="TOKEN_ISSUER_STORE_SERVICE"),
             persist=True,
         ),
     ],
@@ -94,7 +100,7 @@ async def get_token_store_client(
     _token_store_client: Annotated[
         TokenStoreClient,
         Depends(
-            ObjectLoaderEnvironment[pydanticize_type(TokenStoreClient)](env_prefix="TOKEN_STORE_SERVICE"),
+            ObjectLoaderEnvironment[TokenStoreClient](env_prefix="TOKEN_STORE_SERVICE"),
             persist=True,
         ),
     ],

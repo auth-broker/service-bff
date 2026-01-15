@@ -52,14 +52,14 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "ab-alembic-auto-migrate", specifier = ">=0.2.0,<0.3.0" },
-    { name = "ab-client-auth-client", specifier = ">=0.1.1,<0.2.0" },
-    { name = "ab-client-token-issuer", specifier = ">=0.1.0,<0.2.0" },
-    { name = "ab-client-token-issuer-store", specifier = ">=0.1.0,<0.2.0" },
-    { name = "ab-client-token-store", specifier = ">=0.1.0,<0.2.0" },
-    { name = "ab-client-token-validator", specifier = ">=0.1.0,<0.2.0" },
-    { name = "ab-client-user", specifier = ">=0.1.0,<0.2.0" },
+    { name = "ab-client-auth-client", specifier = ">=1.0.0,<2" },
+    { name = "ab-client-token-issuer", specifier = ">=1.0.0,<2" },
+    { name = "ab-client-token-issuer-store", specifier = ">=1.0.0,<2" },
+    { name = "ab-client-token-store", specifier = ">=1.0.0,<2" },
+    { name = "ab-client-token-validator", specifier = ">=1.0.0,<2" },
+    { name = "ab-client-user", specifier = ">=1.0.0,<2" },
     { name = "ab-database", extras = ["sqlite-async", "postgres-sync", "postgres-async"], specifier = ">=0.2.2,<0.3.0" },
-    { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.1.2,<0.2.0" },
+    { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.2.0,<0.3.0" },
     { name = "ab-logging", specifier = ">=0.1.2,<0.2.0" },
     { name = "fastapi", specifier = ">=0.115.14,<0.116" },
     { name = "pydantic", extras = ["email"], specifier = ">=2.11.7,<3" },
@@ -99,86 +99,80 @@ wheels = [
 
 [[package]]
 name = "ab-client-auth-client"
-version = "0.1.1"
+version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "attrs" },
     { name = "httpx" },
-    { name = "python-dateutil" },
+    { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/37/aa/28966d82369f6c7d0529ab014d0f3cd910f8cc3ec03d4e0ba29155c002f5/ab_client_auth_client-0.1.1.tar.gz", hash = "sha256:07e240f174ce4da8f3bd68782df32872ac5b8c035111c318547bfd2ac6955875", size = 8278, upload-time = "2026-01-11T08:08:59.069Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a1/3c/5a95e949612513566fd5d9450b15f2cb6fdf12e194ada2dfd63f324e668f/ab_client_auth_client-1.1.0.tar.gz", hash = "sha256:4e3d00052f7b409afde8114cfe781963c22e25d602783efd0847829853f6940f", size = 7272, upload-time = "2026-01-13T07:44:19.013Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/bd/48/cc1e5a85899a310844b64684e7cc1a342521e71149f58540f63bdf78462c/ab_client_auth_client-0.1.1-py3-none-any.whl", hash = "sha256:60832420af68ca3673be81d3f72f02962d0d4161c6ac6c6a23119d4acdbc6eff", size = 14558, upload-time = "2026-01-11T08:08:57.778Z" },
+    { url = "https://files.pythonhosted.org/packages/46/f8/e3bffda789fa8357eba23dfd973c544d87fd20798dca89c02ffacb1b9800/ab_client_auth_client-1.1.0-py3-none-any.whl", hash = "sha256:239231fb60d7d0d221e03be84483485c615400a61ee7c59f1208d82894eb3182", size = 9389, upload-time = "2026-01-13T07:44:17.639Z" },
 ]
 
 [[package]]
 name = "ab-client-token-issuer"
-version = "0.1.0"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "attrs" },
     { name = "httpx" },
-    { name = "python-dateutil" },
+    { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ed/ec/2564452175ce171e3b00b0aece53d9cc829ccf35424e061f15ec553d65c3/ab_client_token_issuer-0.1.0.tar.gz", hash = "sha256:398ea668d10da8e7f635ef4c40d159757c3e1aff0fb353ff0b046d4360583c80", size = 13209, upload-time = "2026-01-11T08:08:40.345Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a5/25/737ddf49882dbdd05fadcf28dcfa7643a96d2c19035a0a6d1fd4a3fb315d/ab_client_token_issuer-1.1.1.tar.gz", hash = "sha256:7b99e8fc5058f9da527f3f7626831fe54d13e94724d91022503d39040379818b", size = 9438, upload-time = "2026-01-13T08:14:46.361Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fb/cb/3d4815572b1f2d6018e3e26c84eadfbc5716cc1f98f78134745a1962de74/ab_client_token_issuer-0.1.0-py3-none-any.whl", hash = "sha256:8d4a6ec278ca70265e03b758ed0b4d85f652cc3d65758315875d66d3e2deb3d2", size = 33952, upload-time = "2026-01-11T08:08:42.343Z" },
+    { url = "https://files.pythonhosted.org/packages/b0/87/4db33a09f587933fa0ff523e2fd76e73cdda0e43ae71730300046bb63cc7/ab_client_token_issuer-1.1.1-py3-none-any.whl", hash = "sha256:51d2b0f360998a6274c70251e95d4959e63ff9b2a427f7ced7e7d0871203edd7", size = 20154, upload-time = "2026-01-13T08:14:45.146Z" },
 ]
 
 [[package]]
 name = "ab-client-token-issuer-store"
-version = "0.1.0"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "attrs" },
     { name = "httpx" },
-    { name = "python-dateutil" },
+    { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/25/39/6f5ca400f86a09563d85574c17be52e2139311f16b2600ad9a2da6d35107/ab_client_token_issuer_store-0.1.0.tar.gz", hash = "sha256:544bd7f0566bf4e8d8963602663a0f29c33c43e16607d3ddf3760fa23cd98ffa", size = 13853, upload-time = "2026-01-11T08:08:36.307Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/03/d0/736cbd99554af68662435dcaa5eaf40215764ae9e1f293f978a5d464239c/ab_client_token_issuer_store-1.1.1.tar.gz", hash = "sha256:4a728a315a00021356c0541adb10464ccd4ae49316098aa7b790206509347493", size = 10047, upload-time = "2026-01-13T08:15:21.859Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/2f/9fcfd969a1345c83e9f94cc3a328b68a78829114f66c5b955001e1093531/ab_client_token_issuer_store-0.1.0-py3-none-any.whl", hash = "sha256:c9c1319d228c61aa6ddce7fbae7bb9952ffde1cea3ed2abee78b8b19a0bbf01e", size = 36589, upload-time = "2026-01-11T08:08:34.67Z" },
+    { url = "https://files.pythonhosted.org/packages/f8/f1/e63e6e9aafd1d6141707aac4ee79105a9826b26739a96f6232da42be66c9/ab_client_token_issuer_store-1.1.1-py3-none-any.whl", hash = "sha256:e22d62cceef4a3987045b494834a9e94a214a34d4025459de48860e1e58d1672", size = 24342, upload-time = "2026-01-13T08:15:20.669Z" },
 ]
 
 [[package]]
 name = "ab-client-token-store"
-version = "0.1.0"
+version = "1.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "attrs" },
     { name = "httpx" },
-    { name = "python-dateutil" },
+    { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/88/93/c031f698ade576164cd61c0e16ba45a695b767e9111988b23c54245eca46/ab_client_token_store-0.1.0.tar.gz", hash = "sha256:d041b8320fccffce4cf5a71fb08ecc107d5bc24918fe90dc8341bde1409cb243", size = 9299, upload-time = "2026-01-11T08:08:51.654Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bc/2b/48f04c81da2cb069ec93d5ef44a0275ac8f1de1bf29bbcbc19d4b4f63bdf/ab_client_token_store-1.1.0.tar.gz", hash = "sha256:d48e4247de67bce381ac0f7e7938cf68fe0679a1a604af776d6ae6da164b92e2", size = 7478, upload-time = "2026-01-13T07:44:24.551Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a9/66/37d5d6dabb37ed1afc1220e6b7191e2959937d78ae95379733cc694b9eff/ab_client_token_store-0.1.0-py3-none-any.whl", hash = "sha256:4608b697311c7a9b3128afc0affd9b5a2c1918f9f73abf0dd3c7d4431a3c75c9", size = 19392, upload-time = "2026-01-11T08:08:49.828Z" },
+    { url = "https://files.pythonhosted.org/packages/01/0f/0b31fbdc8aaff50937165d7cda4b7db83469e758bbd7a773db97538696be/ab_client_token_store-1.1.0-py3-none-any.whl", hash = "sha256:268d0d3daef31f15ef5b954c993fdfa9755c676f2c0295b66efdfc9b7da2d33e", size = 9863, upload-time = "2026-01-13T07:44:23.298Z" },
 ]
 
 [[package]]
 name = "ab-client-token-validator"
-version = "0.1.0"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "attrs" },
     { name = "httpx" },
-    { name = "python-dateutil" },
+    { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c0/ca/9cf60517d18004d51ec6f7f5766d838b39715b98544f42cd092f41a83829/ab_client_token_validator-0.1.0.tar.gz", hash = "sha256:3c99753a97a46137434a0128dc8f532f80a679e44fc84610f24cf6ef830c8957", size = 8193, upload-time = "2025-09-27T08:48:41.419Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/bc/bc/45aae18a5ccd82517cca7428a200af5cc228b41c574d18cc1d61ebf8ed54/ab_client_token_validator-1.1.1.tar.gz", hash = "sha256:dbb5ffd221363148db0971eca768ea0b71297f62fb25d0d3718985c099344bd9", size = 7208, upload-time = "2026-01-13T08:09:14.236Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/43/9c/d86937ffd003c947f43566eebdba6326eb91b528c0e40fd71ae9b6c8d54f/ab_client_token_validator-0.1.0-py3-none-any.whl", hash = "sha256:0ebc9af56878061f18104c69c06146c0f2370df4822dbd8f85e2181ff3f27b73", size = 13090, upload-time = "2025-09-27T08:48:39.802Z" },
+    { url = "https://files.pythonhosted.org/packages/a6/a9/8c1d9f355bac2356a8762b8f5fc1546995ee2694c736e2ac7520038ca461/ab_client_token_validator-1.1.1-py3-none-any.whl", hash = "sha256:3e53d947ad90f1a46050fb5f89da81e68beb7c4d8bf876b7dbd555f1f315ba60", size = 9120, upload-time = "2026-01-13T08:09:12.909Z" },
 ]
 
 [[package]]
 name = "ab-client-user"
-version = "0.1.0"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "attrs" },
     { name = "httpx" },
-    { name = "python-dateutil" },
+    { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/63/c8/08ca1412ef741d4c544b8d416dc467edeeff7d9a7abbef98615da1287aac/ab_client_user-0.1.0.tar.gz", hash = "sha256:e752cae467d22166796c48845f0e94c0352787ddfe3c38b39f981d29b58f5152", size = 8769, upload-time = "2025-10-05T08:44:10.007Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/8a/6f/858cdbc51687dcd9b7095ada2b5f6b3520fe58fe2e6b4e2bcd345a81fe12/ab_client_user-1.1.1.tar.gz", hash = "sha256:5a27d8d6e70ea6a7a0349db6920392172aba89427f02e5af59517c793f90779b", size = 7402, upload-time = "2026-01-13T08:09:28.616Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/2b/c8/3e09855b57ad99690c913ace71c49f50d837131f4043277a5f3aec7007bb/ab_client_user-0.1.0-py3-none-any.whl", hash = "sha256:6afd03f466bfb0c83d001a227770fc4361a0d72e15a872fb8614e17c09dbe4fb", size = 16329, upload-time = "2025-10-05T08:44:08.361Z" },
+    { url = "https://files.pythonhosted.org/packages/cc/5b/304b8f1348a84d62fedda34f2ed331acf94ed0ea676cb56121ae3ffc6f84/ab_client_user-1.1.1-py3-none-any.whl", hash = "sha256:67402cf57f2a5bfbae840c56945244b4469c9c2e54a8f4e1e302ef458ab79f2f", size = 9090, upload-time = "2026-01-13T08:09:27.048Z" },
 ]
 
 [[package]]
@@ -225,7 +219,7 @@ wheels = [
 
 [[package]]
 name = "ab-identity-context"
-version = "0.1.4"
+version = "0.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ab-client-token-validator" },
@@ -233,9 +227,9 @@ dependencies = [
     { name = "ab-dependency" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/5a/1a/71866f59ddc30d931c6f1ac1bcc92b0cf59a1ad3c3ac41b3e6e64933afa8/ab_identity_context-0.1.4.tar.gz", hash = "sha256:bd71519ffddf8e1ccb5d9344487905245e4468c350784d1531c58e9a1035fced", size = 7287, upload-time = "2026-01-11T04:42:43.773Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b7/34/850cf7c720363d0dc1d09df66849d5a89431a92665644715aecca0119181/ab_identity_context-0.2.0.tar.gz", hash = "sha256:20684055fb80d55a8de6f3987842c633e359ba8a302900a5f79522b33182df45", size = 7097, upload-time = "2026-01-13T08:18:21.9Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8c/27/fa62ac8155c2ec5f2f367bf47e3f8e314c8917f08dd66975caaff196b988/ab_identity_context-0.1.4-py3-none-any.whl", hash = "sha256:fb2c39ad65b430a86f2024d70fa8a9c91fa20a9591efa8f65603ce9af3ad54a7", size = 6607, upload-time = "2026-01-11T04:42:42.042Z" },
+    { url = "https://files.pythonhosted.org/packages/ab/a4/8ca470a4236bb58b201476d486a8ec11e48cc99f863a4283a4bfa39b4d23/ab_identity_context-0.2.0-py3-none-any.whl", hash = "sha256:27f0aca047562cef0113ad347193ae9240a1b6c8e39bd5873afbaf2e8e3bbc65", size = 6399, upload-time = "2026-01-13T08:18:23.422Z" },
 ]
 
 [package.optional-dependencies]
@@ -341,15 +335,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/ef/5f/0bf65511d4eeac3a1f41c54034a492515a707c6edbc642174ae79034d3ba/asyncpg-0.30.0-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:04ff0785ae7eed6cc138e73fc67b8e51d54ee7a3ce9b63666ce55a0bf095f7ba", size = 3662720, upload-time = "2024-10-20T00:30:04.501Z" },
     { url = "https://files.pythonhosted.org/packages/e7/31/1513d5a6412b98052c3ed9158d783b1e09d0910f51fbe0e05f56cc370bc4/asyncpg-0.30.0-cp313-cp313-win32.whl", hash = "sha256:ae374585f51c2b444510cdf3595b97ece4f233fde739aa14b50e0d64e8a7a590", size = 560404, upload-time = "2024-10-20T00:30:06.537Z" },
     { url = "https://files.pythonhosted.org/packages/c8/a4/cec76b3389c4c5ff66301cd100fe88c318563ec8a520e0b2e792b5b84972/asyncpg-0.30.0-cp313-cp313-win_amd64.whl", hash = "sha256:f59b430b8e27557c3fb9869222559f7417ced18688375825f8f12302c34e915e", size = 621623, upload-time = "2024-10-20T00:30:09.024Z" },
-]
-
-[[package]]
-name = "attrs"
-version = "25.4.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/6b/5c/685e6633917e101e5dcb62b9dd76946cbb57c26e133bae9e0cd36033c0a9/attrs-25.4.0.tar.gz", hash = "sha256:16d5969b87f0859ef33a48b35d55ac1be6e42ae49d5e853b597db70c35c57e11", size = 934251, upload-time = "2025-10-06T13:54:44.725Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/3a/2a/7cc015f5b9f5db42b7d48157e23356022889fc354a2813c15934b7cb5c0e/attrs-25.4.0-py3-none-any.whl", hash = "sha256:adcf7e2a1fb3b36ac48d97835bb6d8ade15b8dcce26aba8bf1d14847b57a3373", size = 67615, upload-time = "2025-10-06T13:54:43.17Z" },
 ]
 
 [[package]]
@@ -1138,18 +1123,6 @@ wheels = [
 ]
 
 [[package]]
-name = "python-dateutil"
-version = "2.9.0.post0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "six" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz", hash = "sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3", size = 342432, upload-time = "2024-03-01T18:36:20.211Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl", hash = "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427", size = 229892, upload-time = "2024-03-01T18:36:18.57Z" },
-]
-
-[[package]]
 name = "python-dotenv"
 version = "1.2.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1241,15 +1214,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/c8/fa/05b6428a008e60f79546c943e54068316f32ec8ab5c4f73e4563934fbdc7/ruff-0.12.12-py3-none-win32.whl", hash = "sha256:173be2bfc142af07a01e3a759aba6f7791aa47acf3604f610b1c36db888df7b1", size = 12052870, upload-time = "2025-09-04T16:50:09.121Z" },
     { url = "https://files.pythonhosted.org/packages/85/60/d1e335417804df452589271818749d061b22772b87efda88354cf35cdb7a/ruff-0.12.12-py3-none-win_amd64.whl", hash = "sha256:e99620bf01884e5f38611934c09dd194eb665b0109104acae3ba6102b600fd0d", size = 13178016, upload-time = "2025-09-04T16:50:12.559Z" },
     { url = "https://files.pythonhosted.org/packages/28/7e/61c42657f6e4614a4258f1c3b0c5b93adc4d1f8575f5229d1906b483099b/ruff-0.12.12-py3-none-win_arm64.whl", hash = "sha256:2a8199cab4ce4d72d158319b63370abf60991495fb733db96cd923a34c52d093", size = 12256762, upload-time = "2025-09-04T16:50:15.737Z" },
-]
-
-[[package]]
-name = "six"
-version = "1.17.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81", size = 34031, upload-time = "2024-12-04T17:35:28.174Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", size = 11050, upload-time = "2024-12-04T17:35:26.475Z" },
 ]
 
 [[package]]
