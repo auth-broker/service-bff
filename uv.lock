@@ -52,12 +52,12 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "ab-alembic-auto-migrate", specifier = ">=0.2.0,<0.3.0" },
-    { name = "ab-client-auth-client", specifier = ">=1.0.0,<2" },
-    { name = "ab-client-token-issuer", specifier = ">=1.0.0,<2" },
-    { name = "ab-client-token-issuer-store", specifier = ">=1.0.0,<2" },
-    { name = "ab-client-token-store", specifier = ">=1.0.0,<2" },
-    { name = "ab-client-token-validator", specifier = ">=1.0.0,<2" },
-    { name = "ab-client-user", specifier = ">=1.0.0,<2" },
+    { name = "ab-client-auth-client", specifier = ">=1.1.1,<2" },
+    { name = "ab-client-token-issuer", specifier = ">=1.1.0,<2" },
+    { name = "ab-client-token-issuer-store", specifier = ">=1.1.0,<2" },
+    { name = "ab-client-token-store", specifier = ">=1.1.0,<2" },
+    { name = "ab-client-token-validator", specifier = ">=1.1.0,<2" },
+    { name = "ab-client-user", specifier = ">=1.1.0,<2" },
     { name = "ab-database", extras = ["sqlite-async", "postgres-sync", "postgres-async"], specifier = ">=0.2.2,<0.3.0" },
     { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.2.0,<0.3.0" },
     { name = "ab-logging", specifier = ">=0.1.2,<0.2.0" },
@@ -99,15 +99,15 @@ wheels = [
 
 [[package]]
 name = "ab-client-auth-client"
-version = "1.1.0"
+version = "1.1.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/a1/3c/5a95e949612513566fd5d9450b15f2cb6fdf12e194ada2dfd63f324e668f/ab_client_auth_client-1.1.0.tar.gz", hash = "sha256:4e3d00052f7b409afde8114cfe781963c22e25d602783efd0847829853f6940f", size = 7272, upload-time = "2026-01-13T07:44:19.013Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/68/10/fa37ef27651f9728b2588e55a3019055fdb1f9dc3dd49f5d22d4594e51dd/ab_client_auth_client-1.1.1.tar.gz", hash = "sha256:afc7e87422e5e2085ac024f62b84584b9e619c53bbd8d83614602e5bf36fa994", size = 7370, upload-time = "2026-01-15T03:40:51.625Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/46/f8/e3bffda789fa8357eba23dfd973c544d87fd20798dca89c02ffacb1b9800/ab_client_auth_client-1.1.0-py3-none-any.whl", hash = "sha256:239231fb60d7d0d221e03be84483485c615400a61ee7c59f1208d82894eb3182", size = 9389, upload-time = "2026-01-13T07:44:17.639Z" },
+    { url = "https://files.pythonhosted.org/packages/0e/28/6d5ab85f29354e5d006a56557414cbbdd1660395a928194201b6b42915fb/ab_client_auth_client-1.1.1-py3-none-any.whl", hash = "sha256:bb4ace59aec60a57dbc619f2ba48742a5d110350ff6aa7ebd00d4b50a75dae84", size = 9608, upload-time = "2026-01-15T03:40:50.272Z" },
 ]
 
 [[package]]

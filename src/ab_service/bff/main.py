@@ -8,6 +8,7 @@ from ab_core.dependency import Depends, inject
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
 
+from ab_service.bff.routes.auth import router as auth_router
 from ab_service.bff.routes.identity_context import router as identity_context_router
 from ab_service.bff.routes.token_issuer import router as token_issuer_router
 
@@ -104,5 +105,6 @@ async def lifespan(
 
 
 app = FastAPI(lifespan=lifespan)
+app.include_router(auth_router)
 app.include_router(identity_context_router)
 app.include_router(token_issuer_router)
