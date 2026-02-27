@@ -3,6 +3,7 @@ services:
     build:
       context: .
     environment:
+      FE_BASE_URL: "${FE_BASE_URL:-http://localhost:9998}"
       AUTH_SERVICE_BASE_URL: "http://ab-auth-client-service:80/"
       TOKEN_VALIDATOR_SERVICE_BASE_URL: "http://ab-token-validator-service:80/"
       USER_SERVICE_BASE_URL: "http://ab-user-service:80/"
