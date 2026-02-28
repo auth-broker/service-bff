@@ -16,12 +16,6 @@ from ab_core.database.databases import Database
 from ab_core.dependency import Depends, inject, pydanticize_type
 from ab_core.dependency.loaders.environment_object import ObjectLoaderEnvironment
 
-from .settings import AppSettings
-
-
-async def get_app_settings():
-    yield AppSettings()
-
 
 @inject
 async def get_database(
@@ -115,8 +109,6 @@ async def get_token_store_client(
 
 
 __all__ = [
-    get_app_settings,
-    AppSettings,
     get_database,
     Database,
     get_auth_client,

@@ -59,7 +59,7 @@ requires-dist = [
     { name = "ab-client-token-validator", specifier = ">=1.2.0,<2" },
     { name = "ab-client-user", specifier = ">=1.2.0,<2" },
     { name = "ab-database", extras = ["sqlite-async", "postgres-sync", "postgres-async"], specifier = ">=0.2.2,<0.3.0" },
-    { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.2.0,<0.3.0" },
+    { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.2.1,<0.3.0" },
     { name = "ab-logging", specifier = ">=0.1.2,<0.2.0" },
     { name = "fastapi", specifier = ">=0.115.14,<0.116" },
     { name = "pydantic", extras = ["email"], specifier = ">=2.11.7,<3" },
@@ -219,7 +219,7 @@ wheels = [
 
 [[package]]
 name = "ab-identity-context"
-version = "0.2.0"
+version = "0.2.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ab-client-token-validator" },
@@ -227,10 +227,7 @@ dependencies = [
     { name = "ab-dependency" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b7/34/850cf7c720363d0dc1d09df66849d5a89431a92665644715aecca0119181/ab_identity_context-0.2.0.tar.gz", hash = "sha256:20684055fb80d55a8de6f3987842c633e359ba8a302900a5f79522b33182df45", size = 7097, upload-time = "2026-01-13T08:18:21.9Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/ab/a4/8ca470a4236bb58b201476d486a8ec11e48cc99f863a4283a4bfa39b4d23/ab_identity_context-0.2.0-py3-none-any.whl", hash = "sha256:27f0aca047562cef0113ad347193ae9240a1b6c8e39bd5873afbaf2e8e3bbc65", size = 6399, upload-time = "2026-01-13T08:18:23.422Z" },
-]
+sdist = { url = "https://files.pythonhosted.org/packages/ca/c9/02c4f8d036d8b94729439138e8fea720a9acb71f327945f3f8a1aabd1740/ab_identity_context-0.2.1.tar.gz", hash = "sha256:6ab55bec1d8b8ca05d8538f9ca84d449935d1158c1d763c18bb10798dffaf3d5", size = 7200, upload-time = "2026-02-28T02:28:54.898Z" }
 
 [package.optional-dependencies]
 fastapi = [
