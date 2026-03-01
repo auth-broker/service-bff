@@ -16,3 +16,7 @@ class AppSettings(BaseSettings):
         default_factory=list,
         description="List of allowed origins for CORS. Should be set to the FE app URL in production (e.g. 'http://localhost:9998' for local dev).",
     )
+    TRUSTED_PROXY_HOSTS: list[str] = Field(
+        default_factory=list,
+        description="List of trusted proxy hosts for ProxyHeadersMiddleware. Should be list of domains that may be forwarding requests to the BFF (e.g. API Gateway).",
+    )

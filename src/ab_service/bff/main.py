@@ -9,6 +9,7 @@ from ab_core.dependency.loaders import ObjectLoaderEnvironment
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from ab_service.bff.dependencies import (
     AppSettings,
@@ -108,6 +109,10 @@ app = FastAPI(lifespan=lifespan)
 settings = Load(
     ObjectLoaderEnvironment[AppSettings](env_prefix=""),
     persist=True,
+)
+app.add_middleware(
+    ProxyHeadersMiddleware,
+    trusted_hosts=settings.TRUSTED_PROXY_HOSTS,
 )
 app.add_middleware(
     CORSMiddleware,

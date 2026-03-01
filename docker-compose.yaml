@@ -4,7 +4,8 @@ services:
       context: .
     environment:
       APP_ENV: "${APP_ENV:-development}"
-      ALLOWED_ORIGINS: "${ALLOWED_ORIGINS:-[\"http://localhost:9998\"]}"
+      ALLOWED_ORIGINS: "${ALLOWED_ORIGINS:-[\"http://localhost:9998\", \"http://127.0.0.1:9998\"]}"
+      TRUSTED_PROXY_HOSTS: "${TRUSTED_PROXY_HOSTS:-[\"localhost\", \"127.0.0.1\"]}"
       AUTH_SERVICE_BASE_URL: "http://ab-auth-client-service:80/"
       TOKEN_VALIDATOR_SERVICE_BASE_URL: "http://ab-token-validator-service:80/"
       USER_SERVICE_BASE_URL: "http://ab-user-service:80/"
