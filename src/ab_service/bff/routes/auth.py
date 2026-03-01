@@ -80,7 +80,7 @@ async def refresh(
             detail="Token refresh failed",
         ) from e
 
-    return _handle_token(token, return_to)
+    return _handle_cookie_redirect(return_to, token)
 
 
 @router.get("/callback", response_model=OAuth2TokenExposed)
@@ -104,7 +104,18 @@ async def callback(
     app_context = token.app_context or {}
     return_to = app_context.get("return_to", "/")
 
-    return _handle_token(token, return_to)
+    return _handle_cookie_redirect(return_to, token)
+
+
+@router.get("/logout")
+async def logout(request: Request, return_to: str | None = None):
+    """Logout the user by clearing cookies and redirecting to the given return_to URL (or base URL if not provided)."""
+    # Where to send the browser after logout
+    if not return_to:
+        return_to = urljoin(str(request.base_url), "/")
+
+    # no token forces cookie clearing in the redirect response
+    return _handle_cookie_redirect(return_to, None)
 
 
 @router.get("/me", response_model=IdentityContext)
@@ -127,7 +138,10 @@ def _get_cookie_domain(url: str) -> str | None:
     return cookie_domain
 
 
-def _handle_token(token: OAuth2TokenExposed, return_to: str) -> RedirectResponse:
+def _handle_cookie_redirect(
+    return_to: str,
+    token: OAuth2TokenExposed | None = None,
+) -> RedirectResponse:
     """Helper to prepare the redirect response with cookies set for the given token and return_to URL."""
     # determine cookie domain (based off where the user should be redirected back to after login, which is typically the FE app)
     cookie_domain = _get_cookie_domain(return_to)
@@ -146,14 +160,19 @@ def _handle_token(token: OAuth2TokenExposed, return_to: str) -> RedirectResponse
         samesite="lax",
         path="/",
     )
-    redirect.set_cookie("access_token", token.access_token, **cookie_kwargs)
-    if token.refresh_token is not None:
-        redirect.set_cookie("refresh_token", token.refresh_token, **cookie_kwargs)
+
+    # save token to cookies
+    if token:
+        for key in ("access_token", "refresh_token", "id_token"):
+            value = getattr(token, key)
+            if value:
+                redirect.set_cookie(key, value, **cookie_kwargs)
+            else:
+                logger.warning(f"No {key} returned from callback; frontend may not work as expected")
+
+    # clear token cookies
     else:
-        logger.warning("No refresh token returned from callback; user will be logged out when access token expires")
-    if token.id_token is not None:
-        redirect.set_cookie("id_token", token.id_token, **cookie_kwargs)
-    else:
-        logger.warning("No id token returned from callback; frontend will not have access to user claims")
+        for key in ("access_token", "refresh_token", "id_token"):
+            redirect.delete_cookie(key, **cookie_kwargs)
 
     return redirect
