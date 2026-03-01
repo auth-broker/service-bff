@@ -4,11 +4,14 @@ from contextlib import asynccontextmanager
 from typing import Annotated
 
 from ab_core.alembic_auto_migrate.service import AlembicAutoMigrate
-from ab_core.dependency import Depends, inject
+from ab_core.dependency import Depends, Load, inject
+from ab_core.dependency.loaders import ObjectLoaderEnvironment
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from ab_service.bff.dependencies import (
+    AppSettings,
     AuthClient,
     Database,
     TokenIssuerClient,
@@ -24,7 +27,6 @@ from ab_service.bff.dependencies import (
     get_token_validator_client,
     get_user_client,
 )
-from ab_service.bff.middleware.redirect_on_401 import RedirectOn401Middleware
 from ab_service.bff.routes.auth import router as auth_router
 
 
@@ -103,6 +105,17 @@ async def lifespan(
 
 
 app = FastAPI(lifespan=lifespan)
-app.add_middleware(RedirectOn401Middleware)
+settings = Load(
+    ObjectLoaderEnvironment[AppSettings](env_prefix=""),
+    persist=True,
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.ALLOWED_ORIGINS,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(auth_router)
 # app.include_router(token_issuer_router)
