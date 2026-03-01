@@ -25,7 +25,7 @@ services:
 
   ab-token-issuer-service:
     container_name: ab-token-issuer-service
-    image: mattcoulter7/ab-token-issuer-service:0.3.2
+    image: mattcoulter7/ab-token-issuer-service:0.3.3
     ports:
       - "8003:80"
     networks:
@@ -82,7 +82,7 @@ services:
 
   ab-auth-client-service:
     container_name: ab-auth-client-service
-    image: mattcoulter7/ab-auth-client-service:0.3.2
+    image: mattcoulter7/ab-auth-client-service:0.3.4
     environment:
       O_AUTH2_CLIENT_TYPE: "${O_AUTH2_CLIENT_TYPE:-}"
       O_AUTH2_CLIENT_STANDARD_CONFIG_CLIENT_ID: "${O_AUTH2_CLIENT_STANDARD_CONFIG_CLIENT_ID:-}"
