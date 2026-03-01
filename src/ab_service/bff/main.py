@@ -9,6 +9,7 @@ from ab_core.dependency.loaders import ObjectLoaderEnvironment
 from ab_core.logging.config import LoggingConfig
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.trustedhost import TrustedHostMiddleware
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from ab_service.bff.dependencies import (
@@ -112,7 +113,11 @@ settings = Load(
 )
 app.add_middleware(
     ProxyHeadersMiddleware,
-    trusted_hosts=settings.TRUSTED_PROXY_HOSTS,
+    trusted_hosts=settings.TRUSTED_PROXY_IPS,
+)
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=settings.ALLOWED_HOSTS,
 )
 app.add_middleware(
     CORSMiddleware,
