@@ -69,7 +69,7 @@ services:
 
   ab-token-validator-service:
     container_name: ab-token-validator-service
-    image: mattcoulter7/ab-token-validator-service:0.2.0
+    image: mattcoulter7/ab-token-validator-service:0.3.0
     environment:
       TOKEN_VALIDATOR_TYPE: "${TOKEN_VALIDATOR_TYPE:-}"
       TOKEN_VALIDATOR_OIDC_ISSUER: "${TOKEN_VALIDATOR_OIDC_ISSUER:-}"

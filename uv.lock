@@ -57,7 +57,7 @@ requires-dist = [
     { name = "ab-client-token-issuer", specifier = ">=1.2.0,<2" },
     { name = "ab-client-token-issuer-store", specifier = ">=1.2.0,<2" },
     { name = "ab-client-token-store", specifier = ">=1.2.0,<2" },
-    { name = "ab-client-token-validator", specifier = ">=1.2.0,<2" },
+    { name = "ab-client-token-validator", specifier = ">=1.2.1,<2" },
     { name = "ab-client-user", specifier = ">=1.2.0,<2" },
     { name = "ab-database", extras = ["sqlite-async", "postgres-sync", "postgres-async"], specifier = ">=0.2.2,<0.3.0" },
     { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.2.1,<0.3.0" },
@@ -153,15 +153,15 @@ wheels = [
 
 [[package]]
 name = "ab-client-token-validator"
-version = "1.2.0"
+version = "1.2.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bb/06/c5b496fb322ef48de62b1bde1b7981fcc5eba6da46946c76ac6be6b786c9/ab_client_token_validator-1.2.0.tar.gz", hash = "sha256:d8bc9bc24e1643815c7398db47a0a5e3e6a0a6726d80fb2995dab117f977b92a", size = 7255, upload-time = "2026-02-27T04:20:33.674Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/81/a6/d3c4d5e9fdee2304d6a4238b474fb77e85705efa60d20d11fc4f1b4ff876/ab_client_token_validator-1.2.1.tar.gz", hash = "sha256:7be25ed73f131c207693b49fc285ceddcd7e784fbcf8ad471a0f163e75c964c7", size = 7666, upload-time = "2026-03-08T07:00:28.138Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/62/02/0e626649468aba9d1f5bff05d48af7e8f86fb9cb580b5d50ba45310b8c9b/ab_client_token_validator-1.2.0-py3-none-any.whl", hash = "sha256:094815c371f23b230394d38917faad1fd9239ffadcb38c972fd631c7f33b0285", size = 9206, upload-time = "2026-02-27T04:20:35.008Z" },
+    { url = "https://files.pythonhosted.org/packages/93/66/6ca7e5c8c2aebd164d63f5e000c802a117c1843f52b5f715e96a9fc4e06e/ab_client_token_validator-1.2.1-py3-none-any.whl", hash = "sha256:da012187775a02ed4ac72ea7625f7f6f172ab052196700cbf9fd266cdf3f3c49", size = 10330, upload-time = "2026-03-08T07:00:29.515Z" },
 ]
 
 [[package]]
