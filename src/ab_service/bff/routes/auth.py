@@ -37,6 +37,7 @@ async def login(
     # kickstart the oauth 2.0 login flow by getting the authorization URL to redirect the user to
     login_payload = await auth_client.get_login_url_login_post(
         data=LoginRequest(
+            scope="openid email profile offline_access entitlements",
             app_context={
                 # after the token exchange, to a final return back to the original
                 # requested page.
