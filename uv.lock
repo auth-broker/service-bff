@@ -18,7 +18,7 @@ wheels = [
 
 [[package]]
 name = "ab-bff-service"
-version = "0.3.4"
+version = "0.4.0"
 source = { editable = "." }
 dependencies = [
     { name = "ab-alembic-auto-migrate" },
@@ -58,9 +58,9 @@ requires-dist = [
     { name = "ab-client-token-issuer-store", specifier = ">=1.2.0,<2" },
     { name = "ab-client-token-store", specifier = ">=1.2.0,<2" },
     { name = "ab-client-token-validator", specifier = ">=1.2.1,<2" },
-    { name = "ab-client-user", specifier = ">=1.2.0,<2" },
+    { name = "ab-client-user", specifier = ">=2,<3" },
     { name = "ab-database", extras = ["sqlite-async", "postgres-sync", "postgres-async"], specifier = ">=0.2.2,<0.3.0" },
-    { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.2.1,<0.3.0" },
+    { name = "ab-identity-context", extras = ["fastapi"], specifier = ">=0.3.0,<0.4.0" },
     { name = "ab-logging", specifier = ">=0.1.2,<0.2.0" },
     { name = "fastapi", specifier = ">=0.115.14,<0.116" },
     { name = "pydantic", extras = ["email"], specifier = ">=2.11.7,<3" },
@@ -166,15 +166,15 @@ wheels = [
 
 [[package]]
 name = "ab-client-user"
-version = "1.2.0"
+version = "2.0.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/c3/4c/0b720f0ec149af4802a7f9fb1a155f92e3301c85bd5fdc373c0a4abb3bdf/ab_client_user-1.2.0.tar.gz", hash = "sha256:325b6d344888374459e8ed7966311a311043f214c272b86878de8e63124d6a38", size = 7449, upload-time = "2026-02-27T04:21:19.027Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/b5/9b/13b689f5ee7353e3ef0285582ff3579d25c813fd60fffa19d2f03b24d3a4/ab_client_user-2.0.0.tar.gz", hash = "sha256:aa4296ec352c175e10ee04c991a9b938f263b84c1d0d9cecceff27b9d871a67e", size = 7428, upload-time = "2026-03-08T08:28:39.636Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/59/08/96bed3208beb69be91e503449c853ec7f356fda7c6e24d53525273f68c9d/ab_client_user-1.2.0-py3-none-any.whl", hash = "sha256:a7a41494f0d3dd03a0d9c26e4c3d2aa77abd6fde7d04747bb7f0bb34bdb248c6", size = 9184, upload-time = "2026-02-27T04:21:20.35Z" },
+    { url = "https://files.pythonhosted.org/packages/c7/cf/1bb723d08fdfc28f7453144f337e021325b4e342fbffc84155591ea9fd6f/ab_client_user-2.0.0-py3-none-any.whl", hash = "sha256:04d5957f5ae6b9aa742eec48f70053dfef8644b2d5e4b18d873498ef3217ce42", size = 9148, upload-time = "2026-03-08T08:28:37.958Z" },
 ]
 
 [[package]]
@@ -221,7 +221,7 @@ wheels = [
 
 [[package]]
 name = "ab-identity-context"
-version = "0.2.1"
+version = "0.3.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "ab-client-token-validator" },
@@ -229,9 +229,9 @@ dependencies = [
     { name = "ab-dependency" },
     { name = "pydantic" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/ca/c9/02c4f8d036d8b94729439138e8fea720a9acb71f327945f3f8a1aabd1740/ab_identity_context-0.2.1.tar.gz", hash = "sha256:6ab55bec1d8b8ca05d8538f9ca84d449935d1158c1d763c18bb10798dffaf3d5", size = 7200, upload-time = "2026-02-28T02:28:54.898Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/9c/38/178915ec56e6dd57d798c8433ff158c825472f2dd7b2f1f8d2861cdb03db/ab_identity_context-0.3.0.tar.gz", hash = "sha256:e849d6b4d6dfa3e4cc8a53c3913ac597c7c9191532427761cc5be72f833d035d", size = 7201, upload-time = "2026-03-08T08:33:43.82Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/37/62/f6e8379227453113a7065241192ebdc902d19183fa4084dd1c419d25ebad/ab_identity_context-0.2.1-py3-none-any.whl", hash = "sha256:9e3e426f1fd857684986c7935d401018ef1f43a25c35c2eeadc8d17a982f07cb", size = 6499, upload-time = "2026-02-28T02:28:56.242Z" },
+    { url = "https://files.pythonhosted.org/packages/b4/92/a93b6be945d81dbd3e32cf7d5f74e4340fbc15f8c0e16defe4172e317c25/ab_identity_context-0.3.0-py3-none-any.whl", hash = "sha256:56178279c29cd18fd7acd5505738fd18aa0a4c92501aa920041fd54bd239aae6", size = 6494, upload-time = "2026-03-08T08:33:44.923Z" },
 ]
 
 [package.optional-dependencies]
